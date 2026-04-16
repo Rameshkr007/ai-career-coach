@@ -1,0 +1,323 @@
+# 🎯 AI Career Coach
+
+An intelligent platform powered by Google's Gemini AI that generates personalized career roadmaps, conducts mock interviews, and provides comprehensive job readiness coaching.
+
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-18-blue)](https://react.dev/)
+[![Gemini AI](https://img.shields.io/badge/Powered%20by-Gemini%20AI-orange)](https://ai.google.dev/)
+
+</div>
+
+## ✨ Features
+
+- 🤖 **AI Career Roadmap Generator** - Generate personalized 6-month learning plans powered by Gemini
+- 🎤 **Mock Interview** - Practice with AI-driven interview simulations
+- 📄 **Resume Analyzer** - Get AI-powered resume improvement suggestions
+- 📊 **Performance Analytics** - Visual insights into your career progress
+- ✅ **Job Readiness Assessment** - Evaluate your preparedness for target roles
+- 📈 **Progress Tracker** - Monitor your learning and development journey
+- 💾 **Dashboard** - Centralized hub for all career development tools
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 18** - Modern UI framework
+- **CSS3** - Custom styling with responsive design
+- **Recharts** - Data visualization for analytics
+- **React Router** - Navigation (implied from pages structure)
+
+### Backend
+- **Node.js 18+** - JavaScript runtime
+- **Express.js 5** - Web server framework
+- **Google Generative AI** - Gemini AI integration
+- **CORS** - Cross-origin request handling
+- **dotenv** - Environment variable management
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js** 18 or higher ([Download](https://nodejs.org/))
+- **npm** (comes with Node.js)
+- **Gemini API Key** ([Get free](https://aistudio.google.com/app/apikey))
+
+### Local Development (5 minutes)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/ai-career-coach.git
+   cd ai-career-coach
+   ```
+
+2. **Setup Backend**
+   ```bash
+   cd backend
+   
+   # Copy environment template
+   cp .env.example .env
+   
+   # Add your Gemini API key to .env
+   # GEMINI_API_KEY=your_key_here
+   
+   npm install
+   npm start
+   ```
+   ✅ Backend running: `http://localhost:5000`
+
+3. **Setup Frontend** (open new terminal)
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
+   ✅ Frontend running: `http://localhost:3000` (auto-opens in browser)
+
+4. **Test It!**
+   - Navigate to **Career Roadmap** page
+   - Enter a job role (e.g., "Full Stack Developer")
+   - Enter your skills (e.g., "JavaScript, React, Node.js")
+   - Click **"Generate Roadmap"**
+   - 🎉 See AI-generated career plan!
+
+## 📚 Documentation
+
+- **[QUICKSTART.md](./QUICKSTART.md)** - 5-minute setup guide
+- **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** - Complete setup & production deployment
+- **[GIT_PUBLISHING_GUIDE.md](./GIT_PUBLISHING_GUIDE.md)** - How to publish on GitHub
+
+## 📂 Project Structure
+
+```
+ai-career-coach/
+│
+├── backend/
+│   ├── index.js              # Express server & all API routes
+│   ├── listmomodels.js       # Gemini model listing utility
+│   ├── package.json          # Dependencies
+│   └── .env.example          # Environment template
+│
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   │
+│   ├── src/
+│   │   ├── App.jsx           # Main application component
+│   │   ├── index.js          # React entry point
+│   │   ├── index.css         # Global styles
+│   │   │
+│   │   ├── pages/            # Page components
+│   │   │   ├── LandingPage.jsx
+│   │   │   ├── AuthPage.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── CareerRoadmap.jsx
+│   │   │   ├── MockInterview.jsx
+│   │   │   ├── ResumeAnalyzer.jsx
+│   │   │   ├── ProgressTracker.jsx
+│   │   │   ├── PerformanceAnalytics.jsx
+│   │   │   └── JobReadiness.jsx
+│   │   │
+│   │   ├── components/       # Reusable components
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── Topbar.jsx
+│   │   │   └── Shared.jsx
+│   │   │
+│   │   └── data/             # Static data
+│   │       └── dummyData.js
+│   │
+│   ├── package.json          # Dependencies
+│   └── .env.example          # Environment template
+│
+├── QUICKSTART.md             # 5-minute quick start
+├── SETUP_GUIDE.md            # Full documentation
+├── GIT_PUBLISHING_GUIDE.md   # GitHub publishing guide
+├── .gitignore                # Git exclusion rules
+└── README.md                 # This file
+```
+
+## 🔌 API Endpoints
+
+### Backend Routes
+
+```
+GET  /                    - Health check
+POST /generate-roadmap    - Generate AI career roadmap
+```
+
+**Example request:**
+```bash
+curl -X POST http://localhost:5000/generate-roadmap \
+  -H "Content-Type: application/json" \
+  -d '{
+    "role": "Full Stack Developer",
+    "skills": "JavaScript, React, Node.js"
+  }'
+```
+
+**Response:**
+```json
+{
+  "message": "Detailed 6-month roadmap generated by Gemini AI..."
+}
+```
+
+## ⚙️ Environment Variables
+
+### Backend (`.env`)
+```env
+# Required
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Optional
+PORT=5000
+NODE_ENV=development
+ALLOWED_ORIGINS=http://localhost:3000
+```
+
+### Frontend (`.env`)
+```env
+# Development
+REACT_APP_API_URL=http://localhost:5000
+
+# Production example
+# REACT_APP_API_URL=https://api.yourdomain.com
+```
+
+## 🚢 Production Deployment
+
+### Deploy Backend
+Choose one platform:
+- **[Railway](https://railway.app)** ⭐ Recommended - Free tier + GitHub integration
+- **[Render](https://render.com)** - Free tier available
+- **[Heroku](https://heroku.com)** - Paid option
+
+### Deploy Frontend
+Choose one platform:
+- **[Vercel](https://vercel.com)** ⭐ Recommended - Free tier + optimized for React
+- **[Netlify](https://netlify.com)** - Free tier available
+- **[GitHub Pages](https://pages.github.com/)** - Free, limited features
+
+**See [SETUP_GUIDE.md](./SETUP_GUIDE.md#-part-2-deploy-to-production) for step-by-step deployment instructions.**
+
+## 🧪 Testing
+
+```bash
+# Backend
+cd backend
+npm start
+
+# Frontend (new terminal)
+cd frontend
+npm start
+
+# Test endpoints
+curl http://localhost:5000  # Should return health check
+```
+
+## 🐛 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| "GEMINI_API_KEY not configured" | Add API key to `backend/.env` |
+| "Failed to reach backend" | Ensure backend runs on port 5000; check `REACT_APP_API_URL` |
+| "CORS error" | Both servers must be running (ports 5000 & 3000) |
+| "API rate limit exceeded" | Free tier has limits; wait a minute and retry |
+| "npm install fails" | Delete `node_modules/` and `package-lock.json`, then retry |
+
+## 🔐 Security
+
+- ✅ API keys protected via `.env` files (in `.gitignore`)
+- ✅ CORS configured for specific origins
+- ✅ Input validation on API endpoints
+- ✅ Environment-based configuration
+
+**Never commit `.env` files! They're automatically excluded via `.gitignore`.**
+
+## 📝 Getting Your Gemini API Key
+
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Click **"Create API Key"**
+3. Select/create a project
+4. Copy the generated API key
+5. Paste into `backend/.env`: `GEMINI_API_KEY=your_key_here`
+6. Restart backend server
+
+**Free tier includes:**
+- 60 requests per minute
+- 100 requests per day
+- Access to Gemini 2.0 Flash model
+
+## 📈 Performance
+
+- Frontend: React with code splitting
+- Backend: Express.js with connection pooling
+- Caching: Environment-based API URL management
+- SSR ready: Can be upgraded to Next.js if needed
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🔗 Resources
+
+- **[Google Generative AI Documentation](https://ai.google.dev/docs)**
+- **[Express.js Guide](https://expressjs.com/)**
+- **[React Documentation](https://react.dev/)**
+- **[Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)**
+
+## 💬 Support
+
+For issues and questions:
+1. Check [SETUP_GUIDE.md](./SETUP_GUIDE.md#troubleshooting) troubleshooting section
+2. Review existing GitHub issues
+3. Create a new GitHub issue with:
+   - Error message
+   - Steps to reproduce
+   - Environment details (OS, Node version, etc.)
+
+## 🎓 Learning Outcomes
+
+By building this project, you'll learn:
+- Full-stack JavaScript development (Node.js + React)
+- AI/ML integration with Google's Gemini API
+- RESTful API design with Express
+- Frontend state management with React hooks
+- Deployment strategies and DevOps basics
+- Git workflow and version control
+
+## 📊 Project Status
+
+- ✅ Core features implemented
+- ✅ Gemini AI integration working
+- ✅ Frontend UI complete
+- ✅ Backend API functional
+- ✅ Ready for deployment
+- 🔄 In development - User authentication
+- 📋 Planned - Database integration
+
+## 👨‍💻 Author
+
+Created as an AI-powered career development platform.
+
+---
+
+<div align="center">
+
+**[Give us a ⭐ if you find this helpful!]()**
+
+**[View Live Demo](#)** | **[Report Bug](#)** | **[Request Feature](#)**
+
+Made with ❤️ by the AI Career Coach Team
+
+</div>
